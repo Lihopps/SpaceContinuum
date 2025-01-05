@@ -13,7 +13,7 @@ local function make_ionise_item(item_name,ioning_type)
             icon_size=item.icon_size
         },
         {
-            icon="__WorldCreation__/graphics/icons/"..item.name.."-ioning.png",
+            icon="__SpaceContinuum__/graphics/icons/"..item.name.."-ioning.png",
             icon_size=item.icon_size
         }
     }
@@ -32,7 +32,7 @@ data:extend({
     {
         type = "item",
         name = "lihop-dyson-scaffold-result",
-        icon = "__WorldCreation__/graphics/icons/lihop-dyson-scaffold-result.png",
+        icon = "__SpaceContinuum__/graphics/icons/lihop-dyson-scaffold-result.png",
         icon_size = 64,
         subgroup = "extraction-machine",
         order = "a[items]-c[infinity-miner]",
@@ -65,7 +65,7 @@ data:extend({
     {
         type = "item",
         name = "lihop-dyson-scaffold",
-        icon = "__WorldCreation__/graphics/icons/lihop-dyson-scaffold.png",
+        icon = "__SpaceContinuum__/graphics/icons/lihop-dyson-scaffold.png",
         icon_size = 64,
         subgroup = "extraction-machine",
         order = "a[items]-c[infinity-miner]",
@@ -92,7 +92,7 @@ data:extend({
     {
         type = "item",
         name = "lihop-titan-mesh",
-        icon = "__WorldCreation__/graphics/icons/lihop-titan-mesh.png",
+        icon = "__SpaceContinuum__/graphics/icons/lihop-titan-mesh.png",
         icon_size = 64,
         subgroup = "extraction-machine",
         order = "a[items]-c[infinity-miner]",
@@ -122,7 +122,7 @@ data:extend({
     {
         type = "item",
         name = "lihop-titan-rod",
-        icon = "__WorldCreation__/graphics/icons/lihop-titan-rod.png",
+        icon = "__SpaceContinuum__/graphics/icons/lihop-titan-rod.png",
         icon_size = 64,
         subgroup = "extraction-machine",
         order = "a[items]-c[infinity-miner]",
@@ -149,7 +149,7 @@ data:extend({
     {
         type = "item",
         name = "lihop-titan-plate",
-        icon = "__WorldCreation__/graphics/icons/lihop-titan-plate.png",
+        icon = "__SpaceContinuum__/graphics/icons/lihop-titan-plate.png",
         icon_size = 64,
         subgroup = "extraction-machine",
         order = "a[items]-c[infinity-miner]",
@@ -159,12 +159,12 @@ data:extend({
     {
         type = "item",
         name = "lihop-titan-ore",
-        icon = "__WorldCreation__/graphics/icons/lihop-titan-ore.png",
+        icon = "__SpaceContinuum__/graphics/icons/lihop-titan-ore.png",
         pictures =
         {
-            {size = 64, filename = "__WorldCreation__/graphics/icons/lihop-titan-ore.png", scale = 0.5, mipmap_count = 4},
-            {size = 64, filename = "__WorldCreation__/graphics/icons/lihop-titan-ore-1.png", scale = 0.5, mipmap_count = 4},
-            {size = 64, filename = "__WorldCreation__/graphics/icons/lihop-titan-ore-2.png", scale = 0.5, mipmap_count = 4},
+            {size = 64, filename = "__SpaceContinuum__/graphics/icons/lihop-titan-ore.png", scale = 0.5, mipmap_count = 4},
+            {size = 64, filename = "__SpaceContinuum__/graphics/icons/lihop-titan-ore-1.png", scale = 0.5, mipmap_count = 4},
+            {size = 64, filename = "__SpaceContinuum__/graphics/icons/lihop-titan-ore-2.png", scale = 0.5, mipmap_count = 4},
             },
         icon_size = 64,
         subgroup = "extraction-machine",
@@ -193,7 +193,7 @@ data:extend({
     {
         type = "item",
         name = "lihop-chemical-catalyst",
-        icon = "__WorldCreation__/graphics/icons/lihop-chemical-catalyst.png",
+        icon = "__SpaceContinuum__/graphics/icons/lihop-chemical-catalyst.png",
         icon_size = 64,
         subgroup = "extraction-machine",
         order = "a[items]-c[infinity-miner]",
@@ -210,7 +210,7 @@ data:extend({
         name = "lihop-rocket",
         enabled = lihop_debug,
         energy_required = 50*4,
-        icon = "__WorldCreation__/graphics/icons/rocket.png",
+        icon = "__SpaceContinuum__/graphics/icons/rocket.png",
         ingredients =
         {
             {type = "item", name = "processing-unit", amount = 25},
@@ -225,7 +225,7 @@ data:extend({
     {
         type = "item",
         name = "lihop-rocket",
-        icon = "__WorldCreation__/graphics/icons/rocket.png",
+        icon = "__SpaceContinuum__/graphics/icons/rocket.png",
         icon_size = 64,
         subgroup = "extraction-machine",
         order = "a[items]-c[infinity-miner]",
@@ -285,7 +285,7 @@ data:extend({
      {
         type = "item",
         name = "lihop-electronic-circuit",
-        icon = "__WorldCreation__/graphics/icons/electronic-circuit.png",
+        icon = "__SpaceContinuum__/graphics/icons/electronic-circuit.png",
         icon_size = 64,
         subgroup = "extraction-machine",
         order = "a[items]-c[infinity-miner]",

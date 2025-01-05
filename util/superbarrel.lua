@@ -17,11 +17,11 @@ local empty_barrel_name = "storage-tank"
 local enabled = lihop_debug
 
 -- Item icon masks
-local barrel_hoop_top_mask ="__WorldCreation__/graphics/icons/storage-tank.png"                          
+local barrel_hoop_top_mask ="__SpaceContinuum__/graphics/icons/storage-tank.png"                          
 
 -- Recipe icon masks
 local barrel_empty_icon = "__base__/graphics/icons/storage-tank.png"
-local barrel_fill_top_mask ="__WorldCreation__/graphics/icons/storage-tank.png"                       
+local barrel_fill_top_mask ="__SpaceContinuum__/graphics/icons/storage-tank.png"                       
 
 -- Alpha used for barrel masks
 local top_hoop_alpha = 0.5

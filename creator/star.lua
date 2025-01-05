@@ -140,7 +140,7 @@ local star = {
             localised_description = "[fluid=fusion-plasma]",
             icons ={
                 {
-                icon= "__WorldCreation__/graphics/icons/starmap-star.png",
+                icon= "__SpaceContinuum__/graphics/icons/starmap-star.png",
                 tint=star_color(system.star_temperature),
                 icon_size=512,
                 }
@@ -148,7 +148,7 @@ local star = {
             magnitude = magnitude,
             starmap_icons={
                 {
-                icon= "__WorldCreation__/graphics/icons/starmap-star.png",
+                icon= "__SpaceContinuum__/graphics/icons/starmap-star.png",
                 tint=star_color(system.star_temperature),
                 icon_size=512,
                 }

@@ -9,7 +9,7 @@
 --orbit_6~=44.25
 local asteroids = require("creator.asteroids")
 local coord = require("util.coordonnee")
-local backers = require("__WorldCreation__.backers")
+local backers = require("__SpaceContinuum__.backers")
 local routes = require("creator.routes")
 local corps = require("creator.planet")
 local star = require("creator.star")
@@ -239,7 +239,7 @@ function systeme.create_system(number,galaxy_objects, location, gen, global_map_
             table.insert(system.children,systeme.make_corps(global_map_gen,system,system.name, location, i, gen:random(), "planet", system.density, gen))
             --sprite pour l'orbit
             table.insert(data.raw["utility-sprites"]["default"]["starmap_star"].layers, {
-                filename = "__WorldCreation__/graphics/icons/starmap_orbit_" .. i .. ".png",
+                filename = "__SpaceContinuum__/graphics/icons/starmap_orbit_" .. i .. ".png",
                 size = 4096,
                 scale = 1,
                 shift = coord.position_to_layer(location.distance, location.angle),
@@ -253,7 +253,7 @@ function systeme.create_system(number,galaxy_objects, location, gen, global_map_
         table.insert(system.children,
             systeme.make_corps(global_map_gen,system,system.name, location, 0, gen:random(), "asteroids_belt", system.density, gen))
         table.insert(data.raw["utility-sprites"]["default"]["starmap_star"].layers, {
-            filename = "__WorldCreation__/graphics/icons/starmap_asteroid_belt.png",
+            filename = "__SpaceContinuum__/graphics/icons/starmap_asteroid_belt.png",
             size = 4096,
             scale = 1,
             shift = coord.position_to_layer(location.distance, location.angle),

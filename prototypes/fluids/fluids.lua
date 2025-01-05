@@ -26,11 +26,11 @@ data:extend({
         name = "lihop-titan-catalyseur",
         icons = {
             {
-                icon="__WorldCreation__/graphics/icons/lihop-titan-catalyseur.png",
+                icon="__SpaceContinuum__/graphics/icons/lihop-titan-catalyseur.png",
                 icon_size=64
             },
             {
-                icon="__WorldCreation__/graphics/icons/lihop-titan-catalyseur-tint.png",
+                icon="__SpaceContinuum__/graphics/icons/lihop-titan-catalyseur-tint.png",
                 icon_size=64
             }
         },

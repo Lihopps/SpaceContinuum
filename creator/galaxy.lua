@@ -61,7 +61,7 @@ local function create_and_add_system_edge_from_route(edge, galaxy_objects, gen)
       angle, "edge",
       0, gen))
   table.insert(data.raw["utility-sprites"]["default"]["starmap_star"].layers, {
-    filename = "__WorldCreation__/graphics/icons/starmap_edge_1.png",
+    filename = "__SpaceContinuum__/graphics/icons/starmap_edge_1.png",
     size = 4096,
     scale = 1,
     shift = coord.position_to_layer(system_1.location.distance, system_1.location.angle),
@@ -73,7 +73,7 @@ local function create_and_add_system_edge_from_route(edge, galaxy_objects, gen)
       angle, "edge",
       0, gen))
   table.insert(data.raw["utility-sprites"]["default"]["starmap_star"].layers, {
-    filename = "__WorldCreation__/graphics/icons/starmap_edge_1.png",
+    filename = "__SpaceContinuum__/graphics/icons/starmap_edge_1.png",
     size = 4096,
     scale = 1,
     shift = coord.position_to_layer(system_2.location.distance, system_2.location.angle),

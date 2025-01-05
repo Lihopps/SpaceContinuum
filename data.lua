@@ -20,7 +20,7 @@ worldCreation_gazeous_field={light={},heavy={}}
 ---@param icon string : path to the file
 ---@param starmap_icon string : path to the file
 ---@param starmap_icon_size number : size of the starmap_icon
-function wc_add_graphics_asset(name,icon,starmap_icon,starmap_icon_size)
+function sc_add_graphics_asset(name,icon,starmap_icon,starmap_icon_size)
     
     if not worldCreation_planet_graphics[name] then
         worldCreation_planet_graphics[name]={}
@@ -35,7 +35,7 @@ end
 ---Add graphics set for planet type like 
 ---@param name string : FluidID
 ---@param type string : light or heavy (juste one type by planet)
-function wc_add_gazeous_field(type,name)
+function sc_add_gazeous_field(type,name)
     table.insert(worldCreation_gazeous_field[type],name)
 end
 
@@ -44,8 +44,8 @@ end
 local base_planet = {"gazeous","asteroids_belt"}--"vulcanus","gleba","nauvis","fulgora","aquilo"}
 for _,name in pairs(base_planet) do
     for i=1,1 do
-        local base="__WorldCreation__/graphics/icons/corps/"..name.."/icon-"
-        wc_add_graphics_asset(name,base..i..".png",base..i.."-starmap.png",512)
+        local base="__SpaceContinuum__/graphics/icons/corps/"..name.."/icon-"
+        sc_add_graphics_asset(name,base..i..".png",base..i.."-starmap.png",512)
     end
 end
 
@@ -60,7 +60,7 @@ local gazeous_fiel={
    
 }
 for name,type in pairs(gazeous_fiel) do
-    wc_add_gazeous_field(type,name)
+    sc_add_gazeous_field(type,name)
 end
 
 

@@ -18,7 +18,7 @@ data:extend({
         type = "item-group",
         name = "planets",
         order = "a",
-        icon = "__WorldCreation__/graphics/icons/galaxy.png",
+        icon = "__SpaceContinuum__/graphics/icons/galaxy.png",
         icon_size = 128,
     },
     {

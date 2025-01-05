@@ -60,7 +60,7 @@ local function resource(resource_parameters, autoplace_parameters)
     {
       sheet =
       {
-        filename = "__WorldCreation__/graphics/entity/" .. resource_parameters.name .. "/" .. resource_parameters.name .. ".png",
+        filename = "__SpaceContinuum__/graphics/entity/" .. resource_parameters.name .. "/" .. resource_parameters.name .. ".png",
         priority = "extra-high",
         size = 128,
         frame_count = 8,
@@ -139,7 +139,7 @@ data:extend({
    {
     type = "resource",
     name = "lihop-titan-ore",
-    icon = "__WorldCreation__/graphics/icons/lihop-titan-ore.png",
+    icon = "__SpaceContinuum__/graphics/icons/lihop-titan-ore.png",
     flags = {"placeable-neutral"},
     order = "a-b-e",
     tree_removal_probability = 0.7,
@@ -173,7 +173,7 @@ data:extend({
     {
       sheet =
       {
-        filename = "__WorldCreation__/graphics/entity/titan-ore/titan-ore.png",
+        filename = "__SpaceContinuum__/graphics/entity/titan-ore/titan-ore.png",
         priority = "extra-high",
         width = 40,
         height = 40,

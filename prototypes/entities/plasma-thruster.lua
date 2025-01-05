@@ -164,7 +164,7 @@ data:extend({
                 {
                     -- effect = "flicker",
                     fadeout = true,
-                    animation = util.sprite_load("__WorldCreation__/graphics/entity/thruster/thruster-light",
+                    animation = util.sprite_load("__SpaceContinuum__/graphics/entity/thruster/thruster-light",
                         {
                             animation_speed = 0.5,
                             frame_count = 64,
@@ -177,7 +177,7 @@ data:extend({
             },
             flame_effect =
             {
-                filename = "__WorldCreation__/graphics/entity/thruster/thruster-flame.png",
+                filename = "__SpaceContinuum__/graphics/entity/thruster/thruster-flame.png",
                 width = 384,
                 height = 832
             },
