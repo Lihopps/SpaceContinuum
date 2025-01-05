@@ -10,5 +10,5 @@
 	"base >=2.0.0",
     "space-age>=2.0.0",
     "visible-planets>=1.2.15"],
-    "description": "Continue exploration"
+    "description": "Continue exploration,build dyson sphere"
 }
