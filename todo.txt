@@ -1,10 +1,6 @@
-ajouter des conditions au recipe
 refaire correctement le hub + rocket
-techno qui increment avec le lunch
-bouger le bot dans un autre group
 pipe and silo graphics
 harvester recipe + graphics
-des subgroup ? + orga des new item
 localised (+factoriopedia sim ?)
 harvesting recipe icon
 graphics add multi graphics for all planet / belt
@@ -26,6 +22,7 @@ v0.1.0
 
 revoir la size des planets
 le tweak map gen
+changer les conditions des recipes
 
 
 

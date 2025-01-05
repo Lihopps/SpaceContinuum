@@ -48,7 +48,7 @@ for name,star in pairs(data.raw["space-location"]) do
   end
 end
 
-for i=1,math.min(3,#stars) do
+for i=1,math.min(2,#stars) do
   local spot=math.random(1,#stars)
   local star=star.make_dyson_site(data.raw["space-location"][stars[spot]])
   data.raw["space-location"][stars[spot]]=nil

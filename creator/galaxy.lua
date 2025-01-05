@@ -135,12 +135,6 @@ local function create_routes_for_edge_in_system(galaxy_objects)
             }
             --log(serpent.block(route))
             table.insert(galaxy_objects[name].children, route)
-            table.insert(data.raw.technology["promethium-science-pack"].effects,{
-              type = "unlock-space-location",
-              space_location =child.name,
-              use_icon_overlay_constant = true
-            }
-            )
 
           else -- on creer sur la planet la plus loin du centre (peut etre changer car sinon c'est le bordel)
             local distance = 0

@@ -21,8 +21,8 @@ data:extend({
         name = "lihop-plasma-thruster",
         icon = "__space-age__/graphics/icons/thruster.png",
         icon_size = 64,
-        subgroup = "extraction-machine",
-        order = "a[items]-c[infinity-miner]",
+        subgroup = "space-platform",
+        order = "z-f[thruster]-a",
         place_result = "lihop-plasma-thruster",
         stack_size = 1,
         weight = 1000 * kg

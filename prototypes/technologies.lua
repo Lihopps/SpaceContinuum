@@ -15,7 +15,7 @@
       prerequisites = { "lihop-dyson-scaffold" },
       research_trigger={
           type="craft-item",
-          count=100,
+          count=(lihop_debug and 100) or 10000,
           item={name="lihop-dyson-scaffold-result"}
         }
     },

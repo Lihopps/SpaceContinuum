@@ -31,6 +31,7 @@ plasma_pipe_item.place_result = "plasma_pipe"
 local plasma_pipe_recipe = table.deepcopy(data.raw["recipe"]["pipe"])
 plasma_pipe_recipe.enabled = lihop_debug
 plasma_pipe_recipe.name = "plasma_pipe"
+plasma_pipe_recipe.category="electromagnetics"
 plasma_pipe_recipe.results = { { type = "item", name = "plasma_pipe", amount = 1 } }
 
 data:extend({ plasma_pipe_item, plasma_pipe_recipe, plasma_pipe })
@@ -56,6 +57,7 @@ plasma_pipe__ground_item.place_result = "plasma_pipe-to-ground"
 local plasma_pipe_ground_recipe = table.deepcopy(data.raw["recipe"]["pipe-to-ground"])
 plasma_pipe_ground_recipe.enabled = lihop_debug
 plasma_pipe_ground_recipe.name = "plasma_pipe-to-ground"
+plasma_pipe_ground_recipe.category="electromagnetics"
 plasma_pipe_ground_recipe.results = { { type = "item", name = "plasma_pipe-to-ground", amount = 1 } }
 
 data:extend({ plasma_pipe__ground_item, plasma_pipe_ground_recipe, plasma_pipe_ground })
@@ -85,6 +87,7 @@ plasma_silo_item.place_result = "plasma_silo"
 local plasma_silo_recipe = table.deepcopy(data.raw["recipe"]["storage-tank"])
 plasma_silo_recipe.enabled = lihop_debug
 plasma_silo_recipe.name = "plasma_silo"
+plasma_pipe_ground_recipe.category="electromagnetics"
 plasma_silo_recipe.results = { { type = "item", name = "plasma_silo", amount = 1 } }
 
 data:extend({ plasma_silo_item, plasma_silo_recipe, plasma_silo })

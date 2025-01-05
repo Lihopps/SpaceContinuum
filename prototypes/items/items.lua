@@ -5,7 +5,16 @@ local function make_ionise_item(item_name,ioning_type)
     local item=data.raw["item"][item_name]
     if not item then return end
     local item_ioning=table.deepcopy(item)
+    local description={"",{"item-description.send-in-space","[item="..item_ioning.name.."]"}}
+    if ioning_type=="star" then
+        table.insert(description,"\n")
+        table.insert(description,{"item-description.send-in-star"})
+    elseif ioning_type=="belt" then
+        table.insert(description,"\n")
+        table.insert(description,{"item-description.send-in-belt"})
+    end
     item_ioning.name=item_ioning.name.."-ioning-"..ioning_type
+    item_ioning.localised_description=description
     item_ioning.icon=nil
     item_ioning.icons={
         {
@@ -21,6 +30,8 @@ local function make_ionise_item(item_name,ioning_type)
     item_ioning.spoil_result=item.name
     item_ioning.send_to_orbit_mode="not-sendable"
     item_ioning.rocket_launch_products= nil
+    item_ioning.subgroup = "sc-item"
+    item_ioning.order = item_ioning.order.."-a"
    
 
 
@@ -34,8 +45,9 @@ data:extend({
         name = "lihop-dyson-scaffold-result",
         icon = "__SpaceContinuum__/graphics/icons/lihop-dyson-scaffold-result.png",
         icon_size = 64,
-        subgroup = "extraction-machine",
-        order = "a[items]-c[infinity-miner]",
+        subgroup = "sc-item",
+        order = "a[items]-h",
+        hidden=true,
         stack_size = 10,
         weight = 100*kg,
         spoil_ticks= 60 * second
@@ -47,6 +59,9 @@ data:extend({
         category = "electromagnetics",
         main_product="lihop-dyson-scaffold",
         energy_required = 10,
+        surface_conditions={
+            {property="gravity",min=1000,max=1000}
+        },
         ingredients =
         {
             { type = "item", name = "quantum-processor",      amount = 3 },
@@ -59,18 +74,18 @@ data:extend({
             { type = "item", name = "lihop-dyson-scaffold", amount = 1 },
             { type = "item", name = "scrap", amount = 10 }
         },
-        send_to_orbit_mode="automated",
-        rocket_launch_products= {{ type = "item", name = "lihop-dyson-scaffold-result",      amount = 1 }},
     },
     {
         type = "item",
         name = "lihop-dyson-scaffold",
         icon = "__SpaceContinuum__/graphics/icons/lihop-dyson-scaffold.png",
         icon_size = 64,
-        subgroup = "extraction-machine",
-        order = "a[items]-c[infinity-miner]",
+        subgroup = "sc-item",
+        order = "a[items]-g",
         stack_size = 10,
-        weight = 100*kg
+        weight = 100*kg,
+        send_to_orbit_mode="automated",
+        rocket_launch_products= {{ type = "item", name = "lihop-dyson-scaffold-result",      amount = 1 }},
     },
     {
         type = "recipe",
@@ -94,8 +109,8 @@ data:extend({
         name = "lihop-titan-mesh",
         icon = "__SpaceContinuum__/graphics/icons/lihop-titan-mesh.png",
         icon_size = 64,
-        subgroup = "extraction-machine",
-        order = "a[items]-c[infinity-miner]",
+        subgroup = "sc-item",
+        order = "a[items]-e",
         stack_size = 50,
         weight = 10*kg,
         send_to_orbit_mode="automated",
@@ -124,8 +139,8 @@ data:extend({
         name = "lihop-titan-rod",
         icon = "__SpaceContinuum__/graphics/icons/lihop-titan-rod.png",
         icon_size = 64,
-        subgroup = "extraction-machine",
-        order = "a[items]-c[infinity-miner]",
+        subgroup = "sc-item",
+        order = "a[items]-d",
         stack_size = 100,
         weight = 10*kg
     },
@@ -151,8 +166,8 @@ data:extend({
         name = "lihop-titan-plate",
         icon = "__SpaceContinuum__/graphics/icons/lihop-titan-plate.png",
         icon_size = 64,
-        subgroup = "extraction-machine",
-        order = "a[items]-c[infinity-miner]",
+        subgroup = "sc-item",
+        order = "a[items]-c",
         stack_size = 100,
         weight = 5*kg
     },
@@ -167,8 +182,8 @@ data:extend({
             {size = 64, filename = "__SpaceContinuum__/graphics/icons/lihop-titan-ore-2.png", scale = 0.5, mipmap_count = 4},
             },
         icon_size = 64,
-        subgroup = "extraction-machine",
-        order = "a[items]-c[infinity-miner]",
+        subgroup = "sc-item",
+        order = "a[items]-b",
         stack_size = 100,
         weight = 1*kg,
         send_to_orbit_mode="automated",
@@ -195,8 +210,8 @@ data:extend({
         name = "lihop-chemical-catalyst",
         icon = "__SpaceContinuum__/graphics/icons/lihop-chemical-catalyst.png",
         icon_size = 64,
-        subgroup = "extraction-machine",
-        order = "a[items]-c[infinity-miner]",
+        subgroup = "sc-item",
+        order = "a[items]-a",
         stack_size = 100,
         weight = 5*kg,
         send_to_orbit_mode="automated",
@@ -227,8 +242,8 @@ data:extend({
         name = "lihop-rocket",
         icon = "__SpaceContinuum__/graphics/icons/rocket.png",
         icon_size = 64,
-        subgroup = "extraction-machine",
-        order = "a[items]-c[infinity-miner]",
+        subgroup = "space-related",
+        order = "d[rocket-parts]-e[rocket]",
         stack_size = 1,
         weight = 10000*kg,
         
@@ -275,10 +290,12 @@ data:extend({
         ingredients =
         {
             {type = "item", name = "processing-unit", amount =10},
-           
+            {type = "item", name = "low-density-structure", amount =10},
+            {type = "item", name = "rocket-fuel", amount =10},
+            {type = "item", name = "quantum-processor", amount =1},
         },
         results = { 
-            { type = "item", name = "lihop-satellite", amount = 50 },
+            { type = "item", name = "lihop-satellite", amount = 1 },
         },
         
     },
@@ -287,10 +304,12 @@ data:extend({
         name = "lihop-electronic-circuit",
         icon = "__SpaceContinuum__/graphics/icons/electronic-circuit.png",
         icon_size = 64,
-        subgroup = "extraction-machine",
-        order = "a[items]-c[infinity-miner]",
+        localised_description={"item-description.send-in-space","[item=lihop-satellite]"},
+        subgroup = "sc-item",
+        order = "a[items]-f",
         stack_size = 100,
-        weight = 0.2*kg
+        weight = 0.2*kg,
+       
     },
     {
     type = "item",

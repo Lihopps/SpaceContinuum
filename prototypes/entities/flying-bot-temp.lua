@@ -30,6 +30,7 @@ bot_item.name = "temp-bot"
 bot_item.place_result = "temp-bot"
 bot_item.hidden=true
 bot_item.hidden_in_factoriopedia=true
+bot_item.subgroup="other"
 
 
 

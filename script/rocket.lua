@@ -1,8 +1,9 @@
 local util = require("util.util")
 
-local function clear_cargo(inv)
+local function clear_cargo(inv,message)
     if not inv then return end
     game.print("Something wrong with cargo !")
+    game.print(message)
     inv.clear()
 end
 
@@ -29,6 +30,20 @@ local function check_cargo_inv(silo,inv,name)
             end
         end
         return
+    end  
+
+    --construction dyson
+    if item.name=="lihop-dyson-scaffold-result" then
+        if prototypes.space_location[name] then
+            if prototypes.space_location[name].surface_properties then
+                if prototypes.space_location[name].surface_properties["dyson_sphere_site"]==1 then
+                    --c'est ok
+                    return
+                end
+            end
+        end
+        clear_cargo(inv,"pas ici la dyson")
+        return
     end
 
     --item a ioniser
@@ -44,9 +59,6 @@ local function check_cargo_inv(silo,inv,name)
             end
         end
     end
-
-    --construction dyson
-    
 
     --dans le doute on delete
     clear_cargo(inv)

@@ -28,7 +28,31 @@ data:extend({
         order = "0",
     },
     {
+        type = "item-subgroup",
+        name = "sc-item",
+        group = "intermediate-products",
+        order = "pq",
+    },
+    {
         type = "recipe-category",
         name = "lihop-harvesting"
     },
+    -- {
+    --     type = "item-subgroup",
+    --     name = "sc-superbarrel",
+    --     group = "intermediate-products",
+    --     order = "pq",
+    -- },
+    -- {
+    --     type = "item-subgroup",
+    --     name = "sc-fill-superbarrel",
+    --     group = "intermediate-products",
+    --     order = "pq",
+    -- },
+    -- {
+    --     type = "item-subgroup",
+    --     name = "sc-empty-superbarrel",
+    --     group = "intermediate-products",
+    --     order = "pq",
+    -- },
 })
