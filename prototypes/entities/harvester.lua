@@ -3,6 +3,54 @@ require ("__base__.prototypes.entity.pipecovers")
 local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 local sounds = require("__base__.prototypes.entity.sounds")
 
+
+local pipe_north={
+    filename = "__SpaceContinuum__/graphics/entity/harvester/harvester-pipe-north.png",
+    priority = "extra-high",
+    flags={"low-object"},
+    width = 512,
+    height = 384,
+    shift = util.by_pixel(0, 95),
+    scale = 0.5
+}
+local pipe_south={
+    filename = "__SpaceContinuum__/graphics/entity/harvester/harvester-pipe-south.png",
+    priority = "extra-high",
+    flags={"low-object"},
+    width = 512,
+    height = 384,
+    shift = util.by_pixel(0, -95),
+    scale = 0.5
+}
+local pipe_east={
+    filename = "__SpaceContinuum__/graphics/entity/harvester/harvester-pipe-east.png",
+    priority = "extra-high",
+    flags={"low-object"},
+    width = 512,
+    height = 384,
+    shift = util.by_pixel(-95, 0),
+    scale = 0.5
+}
+local pipe_west={
+    filename = "__SpaceContinuum__/graphics/entity/harvester/harvester-pipe-west.png",
+    priority = "extra-high",
+    flags={"low-object"},
+    width = 512,
+    height = 384,
+    shift = util.by_pixel(95, 0),
+    scale = 0.5
+}
+local pipe_picture={
+  north=pipe_north,
+  east=pipe_east,
+  south=pipe_south,
+  west=pipe_west
+
+}
+
+
+
+
 data:extend({
     
     {
@@ -62,7 +110,7 @@ data:extend({
       emissions_per_minute = { pollution = 6 }
     },
     energy_usage = "1500kW",
-    graphics_set = require("__space-age__.prototypes.entity.cryogenic-plant-pictures").graphics_set,
+    
     open_sound = sounds.metal_large_open,
     close_sound = sounds.metal_large_close,
     working_sound =
@@ -97,15 +145,15 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        always_draw_covers = false,
+        always_draw_covers = true,
         volume = 100,
         pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {-2, -2} }}
       },
       {
         production_type = "output",
-        pipe_picture =  require("__space-age__.prototypes.entity.cryogenic-plant-pictures").pipe_picture,
-        pipe_picture_frozen =  require("__space-age__.prototypes.entity.cryogenic-plant-pictures").pipe_picture_frozen,
-        always_draw_covers = false, -- fighting against FluidBoxPrototype::always_draw_covers crazy default
+        pipe_picture=pipe_picture,
+        render_layer="object-under",
+        always_draw_covers = true, -- fighting against FluidBoxPrototype::always_draw_covers crazy default
         pipe_covers = pipecoverspictures(),
         volume = 100,
         pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {0, -2} }}
@@ -113,13 +161,27 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        always_draw_covers = false,
+        always_draw_covers = true,
         volume = 100,
         filter="fusion-plasma",
         pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {2, -2} ,connection_category = "fusion-plasma"}}
       }
     },
-    fluid_boxes_off_when_no_fluid_recipe = true,
+    fluid_boxes_off_when_no_fluid_recipe = false,
+    graphics_set = {
+      animation={
+        north={
+          filename = "__SpaceContinuum__/graphics/entity/harvester/harvester.png",
+        width = 512,
+        height = 384,
+        frame_count = 1,
+        line_length = 1,
+        scale=0.5
+        --shift = {0.03125, -0.1484375}
+
+        }
+      }
+    },
     water_reflection =
     {
       pictures = util.sprite_load("__space-age__/graphics/entity/foundry/foundry-reflection",

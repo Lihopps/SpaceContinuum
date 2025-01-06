@@ -11,13 +11,15 @@ end
 
 local function set_recipe(platforme,n,type)
     local filter={ name = {"lihop-harvester"}}
-    if not surface then return end
+    if not platforme.surface then return end
     local harvesters=platforme.surface.find_entities_filtered(filter) 
     if not harvesters then return end
+    game.print("ici")
     for _,harvester in pairs(harvesters) do
         if n==0 then
             --game.print(platforme.space_location.localised_description)
             if type=="lihopstar" then
+                
                 if harvester.force.technologies["lihop-harvester-h"].researched then
                     harvester.set_recipe("lihop-harvesting-fusion-plasma")
                 end

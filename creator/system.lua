@@ -229,7 +229,9 @@ function systeme.create_system(number,galaxy_objects, location, gen, global_map_
     --     scale = gen:random(),
     --     shift = coord.position_to_layer(location.distance, location.angle),
     -- })
-    table.insert(system.children, star.make_star(system))
+    local star_tmp=star.make_star(system)
+    system.icons=table.deepcopy(star_tmp.icons)
+    table.insert(system.children,star_tmp)
 
 
 

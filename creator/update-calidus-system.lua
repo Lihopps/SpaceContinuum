@@ -4,8 +4,10 @@ local update = {}
 
 function update.update(galaxy_objects)
     galaxy_objects["lihop-system-Calidus"] = { name = "lihop-system-Calidus", localised_name = "Calidus", position = { x = 0, y = 0 }, location = { distance = 0, angle = 0 }, children = {}, star_temperature = 140 }
+    local star_tmp=star.make_star(galaxy_objects["lihop-system-Calidus"])
+    galaxy_objects["lihop-system-Calidus"].icons=table.deepcopy(star_tmp.icons)
     
-    table.insert(galaxy_objects["lihop-system-Calidus"].children, star.make_star(galaxy_objects["lihop-system-Calidus"]))
+    table.insert(galaxy_objects["lihop-system-Calidus"].children, star_tmp)
     table.insert(galaxy_objects["lihop-system-Calidus"].children,
         {
             type = "space-connection",

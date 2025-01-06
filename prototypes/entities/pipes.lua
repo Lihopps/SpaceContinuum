@@ -9,7 +9,7 @@ local function color_sprites(array, tint)
     return array
 end
 
-local tint = { r = 250 / 255, g = 250 / 255, b = 250 / 255, a = 1.000 }
+local tint = { r = 120 / 255, g = 120 / 255, b = 120 / 255, a = 1 }
 
 local plasma_pipe = table.deepcopy(data.raw["pipe"]["pipe"])
 plasma_pipe.minable = { mining_time = 0.1, result = "plasma_pipe" }

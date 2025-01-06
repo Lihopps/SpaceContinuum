@@ -2,8 +2,8 @@ local asteroids = require("creator.asteroids")
 local coord = require("util.coordonnee")
 local system = require("creator.system")
 local routes = require("creator.routes")
-local star = require("creator.star")
 local update_calidus = require("creator.update-calidus-system")
+local util = require("util.util")
 
 local function add_system_to_game(system, debloque)
   for _, object in pairs(system.children) do
@@ -183,7 +183,8 @@ local function add_galaxy_to_game(galaxy_objects)
         {
           type = "technology",
           name = tech_name,
-          icons = util.technology_icon_constant_planet("__space-age__/graphics/technology/vulcanus.png"),
+          localised_description={"technology-description.help-discovery",system.localised_name},
+          icons = util.sptechnology_icon_constant_planet(system.icons),
           icon_size = 256,
           essential = true,
           effects = {},

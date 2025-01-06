@@ -1,13 +1,14 @@
 refaire correctement le hub + rocket
 pipe and silo graphics
 harvester recipe + graphics
-localised (+factoriopedia sim ?)
 harvesting recipe icon
+localised (+factoriopedia sim ?)
+description des tech discovery
 graphics add multi graphics for all planet / belt
 
 
 
-visible planet tourne pas + taille ?
+
 
 
 
@@ -19,7 +20,7 @@ changement territory settings
 le tweak map gen
 
 v0.1.0
-
+tech system icon
 revoir la size des planets
 le tweak map gen
 changer les conditions des recipes

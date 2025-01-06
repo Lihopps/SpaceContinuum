@@ -46,7 +46,7 @@
         recipe = "lihop-satellite"
         },
       },
-      prerequisites = { "space-science-pack" },
+      prerequisites = { "space-platform-thruster" },
       unit =
       {
         count = 1000,
