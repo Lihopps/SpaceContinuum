@@ -4,42 +4,204 @@ local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 local sounds = require("__base__.prototypes.entity.sounds")
 
 
-local pipe_north={
-    filename = "__SpaceContinuum__/graphics/entity/harvester/harvester-pipe-north.png",
-    priority = "extra-high",
-    flags={"low-object"},
+local animation_speed=0.2
+local idle_frames=1
+local engagement_frames=24
+local working_frames=24
+local desengagement_frames=24
+local scale=0.5
+
+local function engagement_animation()
+  return {
+    {
+    filename = "__SpaceContinuum__/graphics/entity/harvester/harvester-engagement.png",
+    priority = "high",
     width = 512,
     height = 384,
-    shift = util.by_pixel(0, 95),
-    scale = 0.5
-}
-local pipe_south={
-    filename = "__SpaceContinuum__/graphics/entity/harvester/harvester-pipe-south.png",
-    priority = "extra-high",
-    flags={"low-object"},
+    frame_count = 24,
+    line_length = 4,
+    animation_speed=animation_speed,
+    scale = scale,
+    },
+    {
+    filename = "__SpaceContinuum__/graphics/entity/harvester/harvester-engagement-shadow.png",
+    priority = "high",
     width = 512,
     height = 384,
-    shift = util.by_pixel(0, -95),
-    scale = 0.5
-}
-local pipe_east={
-    filename = "__SpaceContinuum__/graphics/entity/harvester/harvester-pipe-east.png",
-    priority = "extra-high",
-    flags={"low-object"},
+    frame_count = 24,
+    line_length = 4,
+    draw_as_shadow=true,
+    animation_speed=animation_speed,
+    scale = scale,
+    },
+  }
+end
+
+local function desengagement_animation()
+  return {
+    {
+    filename = "__SpaceContinuum__/graphics/entity/harvester/harvester-engagement.png",
+    priority = "high",
     width = 512,
     height = 384,
-    shift = util.by_pixel(-95, 0),
-    scale = 0.5
-}
-local pipe_west={
-    filename = "__SpaceContinuum__/graphics/entity/harvester/harvester-pipe-west.png",
-    priority = "extra-high",
-    flags={"low-object"},
+    frame_count = 24,
+    line_length = 4,
+    animation_speed=animation_speed,
+    run_mode="backward",
+    scale = scale,
+    --shift = util.by_pixel(0, -15),
+    },
+     {
+    filename = "__SpaceContinuum__/graphics/entity/harvester/harvester-engagement-shadow.png",
+    priority = "high",
     width = 512,
     height = 384,
-    shift = util.by_pixel(95, 0),
-    scale = 0.5
-}
+    frame_count = 24,
+    line_length = 4,
+    draw_as_shadow=true,
+    animation_speed=animation_speed,
+    run_mode="backward",
+    scale = scale,
+    --shift = util.by_pixel(0, -15),
+    },
+  }
+end
+
+local function working_animation()
+  return {
+    {
+    filename = "__SpaceContinuum__/graphics/entity/harvester/harvester-working.png",
+    priority = "high",
+    width = 512,
+    height = 384,
+    frame_count = 24,
+    line_length = 4,
+    animation_speed=animation_speed,
+    run_mode="backward",
+    scale = scale,
+    --shift = util.by_pixel(0, -15),
+    },
+     {
+    filename = "__SpaceContinuum__/graphics/entity/harvester/harvester-working-shadow.png",
+    priority = "high",
+    width = 512,
+    height = 384,
+    frame_count = 24,
+    line_length = 4,
+    draw_as_shadow=true,
+    animation_speed=animation_speed,
+    run_mode="backward",
+    scale = scale,
+    --shift = util.by_pixel(0, -15),
+    },
+  }
+end
+
+local function idle_animation()
+  return {
+    {
+    filename = "__SpaceContinuum__/graphics/entity/harvester/harvester.png",
+    priority = "high",
+    width = 512,
+    height = 384,
+    frame_count = 1,
+    line_length = 1,
+    animation_speed=animation_speed,
+    run_mode="backward",
+    scale = scale,
+    --shift = util.by_pixel(0, -15),
+    },
+    {
+    filename = "__SpaceContinuum__/graphics/entity/harvester/harvester-shadow.png",
+    priority = "high",
+    width = 512,
+    height = 384,
+    frame_count = 1,
+    line_length = 1,
+    draw_as_shadow=true,
+    animation_speed=animation_speed,
+    run_mode="backward",
+    scale = scale,
+    --shift = util.by_pixel(0, -15),
+    },
+  }
+end
+
+
+local function states()
+  return {
+    {
+      name = "idle",
+      duration = idle_frames,
+      next_active = "engagement",
+      next_inactive = "idle",
+    },
+    {
+      name = "engagement",
+      duration = engagement_frames,
+      next_active = "working",
+      next_inactive = "desengagement",
+    },
+    {
+      name = "working",
+      duration = working_frames,
+      next_active = "working",
+      next_inactive = "desengagement",
+    },
+    {
+      name = "desengagement",
+      duration =  desengagement_frames,
+      next_active = "engagement",
+      next_inactive = "idle",
+    }
+  }
+end
+
+local function working_visualisations()
+  return {
+    {
+      always_draw = true,
+      draw_in_states = {"idle"},
+      animation = { layers = idle_animation(),animation_speed=animation_speed}
+    },
+    {
+      always_draw = true,
+      draw_in_states = {"engagement"},
+      animation = { layers = engagement_animation(),animation_speed=animation_speed},
+      name = "engagement"
+    },
+    {
+      always_draw = true,
+      draw_in_states = {"desengagement"},
+      animation = { layers = desengagement_animation(),animation_speed=animation_speed},
+      name = "desengagement"
+    },
+    {
+      always_draw = true,
+      draw_in_states = {"working"},
+      animation = { layers = working_animation(),animation_speed=animation_speed},
+      name = "working"
+    },
+  }
+end
+
+local function pipe_connection(pipe_direction)
+  return
+  {
+    layers = {
+      util.sprite_load("__SpaceContinuum__/graphics/entity/harvester/harvester-pipe-" .. pipe_direction,
+        {
+          scale = 0.5,
+        }
+      )
+    }
+  }
+end
+
+local pipe_north=pipe_connection("north")
+local pipe_south=pipe_connection("south")
+local pipe_east=pipe_connection("east")
+local pipe_west=pipe_connection("west")
 local pipe_picture={
   north=pipe_north,
   east=pipe_east,
@@ -145,14 +307,14 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        always_draw_covers = true,
+        --always_draw_covers = true,
         volume = 100,
         pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {-2, -2} }}
       },
       {
         production_type = "output",
         pipe_picture=pipe_picture,
-        render_layer="object-under",
+        --render_layer="object-under",
         always_draw_covers = true, -- fighting against FluidBoxPrototype::always_draw_covers crazy default
         pipe_covers = pipecoverspictures(),
         volume = 100,
@@ -161,7 +323,8 @@ data:extend({
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        always_draw_covers = true,
+        --pipe_picture=pipe_picture,
+        --always_draw_covers = true,
         volume = 100,
         filter="fusion-plasma",
         pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {2, -2} ,connection_category = "fusion-plasma"}}
@@ -169,18 +332,21 @@ data:extend({
     },
     fluid_boxes_off_when_no_fluid_recipe = false,
     graphics_set = {
-      animation={
-        north={
-          filename = "__SpaceContinuum__/graphics/entity/harvester/harvester.png",
-        width = 512,
-        height = 384,
-        frame_count = 1,
-        line_length = 1,
-        scale=0.5
-        --shift = {0.03125, -0.1484375}
+      animation_progress = 0.25,
+      working_visualisations=working_visualisations(),
+      states=states()
+      -- animation={
+      --   north={
+      --     filename = "__SpaceContinuum__/graphics/entity/harvester/harvester.png",
+      --   width = 512,
+      --   height = 384,
+      --   frame_count = 1,
+      --   line_length = 1,
+      --   scale=0.5
+      --   --shift = {0.03125, -0.1484375}
 
-        }
-      }
+      --   }
+      -- }
     },
     water_reflection =
     {
