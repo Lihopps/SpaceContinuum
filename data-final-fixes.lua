@@ -75,7 +75,22 @@ for _, h_fluid in pairs(worldCreation_gazeous_field["heavy"]) do
         ingredients = {},
         subgroup = "fluid-recipes",
         order = "z",
-        main_product = h_fluid,
+        icons={
+          {
+            icon = "__SpaceContinuum__/graphics/entity/harvester/harvester-icon.png",
+            scale=1.1
+          },
+          {
+            icon = data.raw["fluid"][h_fluid].icon,
+            shift={-15,15},
+            scale=0.5
+          },
+          {
+            icon =data.raw["fluid"][l_fluid].icon,
+            shift={15,15},
+            scale=0.5
+          }
+        },
         results = {
           { type = "fluid", fluidbox_index = 1, name = h_fluid, amount = 100, temperature = h_temp },
           { type = "fluid", fluidbox_index = 2, name = l_fluid, amount = 100, temperature = l_temp }

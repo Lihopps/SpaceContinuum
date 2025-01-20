@@ -157,6 +157,19 @@ local function states()
   }
 end
 
+local function pipe_connection(pipe_direction)
+  return
+  {
+    filename = "__SpaceContinuum__/graphics/entity/harvester/harvester-pipe-" .. pipe_direction..".png",
+    priority = "high",
+    width = 512,
+    height = 384,
+    frame_count = 1,
+    line_length = 1,
+    scale = 0.5
+  }
+end
+
 local function working_visualisations()
   return {
     {
@@ -182,36 +195,18 @@ local function working_visualisations()
       animation = { layers = working_animation(),animation_speed=animation_speed},
       name = "working"
     },
+    {
+      always_draw = true,
+      draw_in_states = {"idle","engagement","working","desengagement"},
+      north_secondary_draw_order=-2,
+      north_animation=pipe_connection("north"),
+      east_animation=pipe_connection("east"),
+      south_animation=pipe_connection("south"),
+      west_animation=pipe_connection("west"),
+      name = "pipe"
+    },
   }
 end
-
-local function pipe_connection(pipe_direction)
-  return
-  {
-    layers = {
-      util.sprite_load("__SpaceContinuum__/graphics/entity/harvester/harvester-pipe-" .. pipe_direction,
-        {
-          scale = 0.5,
-        }
-      )
-    }
-  }
-end
-
-local pipe_north=pipe_connection("north")
-local pipe_south=pipe_connection("south")
-local pipe_east=pipe_connection("east")
-local pipe_west=pipe_connection("west")
-local pipe_picture={
-  north=pipe_north,
-  east=pipe_east,
-  south=pipe_south,
-  west=pipe_west
-
-}
-
-
-
 
 data:extend({
     
@@ -232,7 +227,7 @@ data:extend({
     {
         type = "item",
         name = "lihop-harvester",
-        icon = "__base__/graphics/icons/assembling-machine-1.png",
+        icon = "__SpaceContinuum__/graphics/entity/harvester/harvester-icon.png",
         icon_size = 64,
         subgroup = "extraction-machine",
         order = "a[items]-c[infinity-miner]",
@@ -243,7 +238,7 @@ data:extend({
    {
     type = "assembling-machine",
     name = "lihop-harvester",
-    icon = "__space-age__/graphics/icons/cryogenic-plant.png",
+    icon = "__SpaceContinuum__/graphics/entity/harvester/harvester-icon.png",
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 0.2, result = "lihop-harvester"},
     max_health = 350,
@@ -313,7 +308,7 @@ data:extend({
       },
       {
         production_type = "output",
-        pipe_picture=pipe_picture,
+        --pipe_picture=pipe_picture,
         --render_layer="object-under",
         always_draw_covers = true, -- fighting against FluidBoxPrototype::always_draw_covers crazy default
         pipe_covers = pipecoverspictures(),
@@ -334,28 +329,9 @@ data:extend({
     graphics_set = {
       animation_progress = 0.25,
       working_visualisations=working_visualisations(),
-      states=states()
-      -- animation={
-      --   north={
-      --     filename = "__SpaceContinuum__/graphics/entity/harvester/harvester.png",
-      --   width = 512,
-      --   height = 384,
-      --   frame_count = 1,
-      --   line_length = 1,
-      --   scale=0.5
-      --   --shift = {0.03125, -0.1484375}
-
-      --   }
-      -- }
+      states=states(),
+      -- idle_animation=pipe_picture,
+      -- always_draw_idle_animation=true,
     },
-    water_reflection =
-    {
-      pictures = util.sprite_load("__space-age__/graphics/entity/foundry/foundry-reflection",
-      {
-          scale = 5,
-          shift = {0,2}
-      }),
-      rotate = false,
-    }
   },
 })

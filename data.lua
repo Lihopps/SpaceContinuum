@@ -64,5 +64,4 @@ for name,type in pairs(gazeous_fiel) do
 end
 
 
---thanks to 
---hay_guise planet radius
+

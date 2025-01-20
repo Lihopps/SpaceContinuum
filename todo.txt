@@ -1,27 +1,34 @@
-refaire correctement le hub + rocket
+refaire correctement le hub 
 pipe and silo graphics
-harvester recipe + graphics
+harvester recipe
 harvesting recipe icon
-localised (+factoriopedia sim ?)
+localised 
+recipe
 description des tech discovery
-graphics add multi graphics for all planet / belt
-
-
-
-
 
 
 
 Equilibrage sa race !!!!
 
+thanks to :
+hay_guise planet radius
+
+ask for:
+visible planet support starmap_icons
+
+
 v0.0.2
 ajout des vers
 changement territory settings
+tips and trick
+(+factoriopedia sim ?)
 le tweak map gen
 
 v0.1.0
+add custom planet
 tech system icon
 revoir la size des planets
+graphics add multi graphics for all planet / belt
 le tweak map gen
 changer les conditions des recipes
 
