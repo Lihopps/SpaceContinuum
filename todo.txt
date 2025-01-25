@@ -1,7 +1,4 @@
-refaire correctement le hub 
 pipe and silo graphics
-harvester recipe
-harvesting recipe icon
 localised 
 recipe
 description des tech discovery

@@ -36,31 +36,31 @@ plasma_pipe_recipe.results = { { type = "item", name = "plasma_pipe", amount = 1
 
 data:extend({ plasma_pipe_item, plasma_pipe_recipe, plasma_pipe })
 
-local plasma_pipe_ground = table.deepcopy(data.raw["pipe-to-ground"]["pipe-to-ground"])
-plasma_pipe_ground.minable = { mining_time = 0.1, result = "plasma_pipe-to-ground" }
-plasma_pipe_ground.name = "plasma_pipe-to-ground"
-plasma_pipe_ground.fluid_box["filter"] = "fusion-plasma"
-for _, pipe_connection in pairs(plasma_pipe_ground.fluid_box.pipe_connections) do
-    pipe_connection.connection_category = "fusion-plasma"
-end
-plasma_pipe_ground.surface_conditions = { { property = "gravity", min = 0, max = 0 } }
-plasma_pipe_ground.pictures = color_sprites(plasma_pipe_ground.pictures, tint)
-plasma_pipe_ground.fluid_box.pipe_covers = color_sprites(plasma_pipe_ground.fluid_box.pipe_covers, tint)
-plasma_pipe_ground.fluid_box.pipe_connections[2].max_underground_distance = 15
+-- local plasma_pipe_ground = table.deepcopy(data.raw["pipe-to-ground"]["pipe-to-ground"])
+-- plasma_pipe_ground.minable = { mining_time = 0.1, result = "plasma_pipe-to-ground" }
+-- plasma_pipe_ground.name = "plasma_pipe-to-ground"
+-- plasma_pipe_ground.fluid_box["filter"] = "fusion-plasma"
+-- for _, pipe_connection in pairs(plasma_pipe_ground.fluid_box.pipe_connections) do
+--     pipe_connection.connection_category = "fusion-plasma"
+-- end
+-- plasma_pipe_ground.surface_conditions = { { property = "gravity", min = 0, max = 0 } }
+-- plasma_pipe_ground.pictures = color_sprites(plasma_pipe_ground.pictures, tint)
+-- plasma_pipe_ground.fluid_box.pipe_covers = color_sprites(plasma_pipe_ground.fluid_box.pipe_covers, tint)
+-- plasma_pipe_ground.fluid_box.pipe_connections[2].max_underground_distance = 15
 
-local plasma_pipe__ground_item = table.deepcopy(data.raw["item"]["pipe-to-ground"])
-plasma_pipe__ground_item.name = "plasma_pipe-to-ground"
-plasma_pipe__ground_item.icon = "__base__/graphics/icons/assembling-machine-1.png"
-plasma_pipe__ground_item.icon_size = 64
-plasma_pipe__ground_item.place_result = "plasma_pipe-to-ground"
+-- local plasma_pipe__ground_item = table.deepcopy(data.raw["item"]["pipe-to-ground"])
+-- plasma_pipe__ground_item.name = "plasma_pipe-to-ground"
+-- plasma_pipe__ground_item.icon = "__base__/graphics/icons/assembling-machine-1.png"
+-- plasma_pipe__ground_item.icon_size = 64
+-- plasma_pipe__ground_item.place_result = "plasma_pipe-to-ground"
 
-local plasma_pipe_ground_recipe = table.deepcopy(data.raw["recipe"]["pipe-to-ground"])
-plasma_pipe_ground_recipe.enabled = lihop_debug
-plasma_pipe_ground_recipe.name = "plasma_pipe-to-ground"
-plasma_pipe_ground_recipe.category="electromagnetics"
-plasma_pipe_ground_recipe.results = { { type = "item", name = "plasma_pipe-to-ground", amount = 1 } }
+-- local plasma_pipe_ground_recipe = table.deepcopy(data.raw["recipe"]["pipe-to-ground"])
+-- plasma_pipe_ground_recipe.enabled = lihop_debug
+-- plasma_pipe_ground_recipe.name = "plasma_pipe-to-ground"
+-- plasma_pipe_ground_recipe.category="electromagnetics"
+-- plasma_pipe_ground_recipe.results = { { type = "item", name = "plasma_pipe-to-ground", amount = 1 } }
 
-data:extend({ plasma_pipe__ground_item, plasma_pipe_ground_recipe, plasma_pipe_ground })
+-- data:extend({ plasma_pipe__ground_item, plasma_pipe_ground_recipe, plasma_pipe_ground })
 
 local plasma_silo = table.deepcopy(data.raw["storage-tank"]["storage-tank"])
 plasma_silo.minable = { mining_time = 0.1, result = "plasma_silo" }
@@ -87,7 +87,7 @@ plasma_silo_item.place_result = "plasma_silo"
 local plasma_silo_recipe = table.deepcopy(data.raw["recipe"]["storage-tank"])
 plasma_silo_recipe.enabled = lihop_debug
 plasma_silo_recipe.name = "plasma_silo"
-plasma_pipe_ground_recipe.category="electromagnetics"
+plasma_silo_recipe.category="electromagnetics"
 plasma_silo_recipe.results = { { type = "item", name = "plasma_silo", amount = 1 } }
 
 data:extend({ plasma_silo_item, plasma_silo_recipe, plasma_silo })

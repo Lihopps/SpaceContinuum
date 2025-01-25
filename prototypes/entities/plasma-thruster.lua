@@ -9,9 +9,10 @@ data:extend({
         energy_required = 2,
         ingredients =
         {
-            { type = "item", name = "big-mining-drill",      amount = 5 },
-            { type = "item", name = "steel-plate",           amount = 100 },
-            { type = "item", name = "low-density-structure", amount = 20 }
+            { type = "item", name = "thruster",      amount = 2 },
+            { type = "item", name = "plasma_silo",           amount = 2 },
+            { type = "item", name = "quantum-processor", amount = 5 },
+            { type = "item", name = "lihop-titan-plate", amount = 20 }
 
         },
         results = { { type = "item", name = "lihop-plasma-thruster", amount = 1 } }
@@ -19,7 +20,7 @@ data:extend({
     {
         type = "item",
         name = "lihop-plasma-thruster",
-        icon = "__space-age__/graphics/icons/thruster.png",
+        icon = "__SpaceContinuum__/graphics/icons/thruster.png",
         icon_size = 64,
         subgroup = "space-platform",
         order = "z-f[thruster]-a",
@@ -31,7 +32,7 @@ data:extend({
         type = "thruster",
         name = "lihop-plasma-thruster",
         flags = { "placeable-neutral", "placeable-player", "player-creation" },
-        icon = "__space-age__/graphics/icons/thruster.png",
+        icon = "__SpaceContinuum__/graphics/icons/thruster.png",
         collision_box = { { -1.7, -2.2 }, { 1.7, 2.2 } },
         collision_mask = { layers = { item = true, object = true, train = true, is_lower_object = true, is_object = true } },
         selection_box = { { -2, -2.5 }, { 2, 5.5 } },

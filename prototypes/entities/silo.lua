@@ -221,5 +221,8 @@ local silo_recipe = table.deepcopy(data.raw["recipe"]["rocket-silo"])
 silo_recipe.enabled = lihop_debug
 silo_recipe.name = "wc-rocket-silo"
 silo_recipe.results = { { type = "item", name = "wc-rocket-silo", amount = 1 } }
+for _,ingredient in pairs(silo_recipe.ingredients) do
+    ingredient.amount=ingredient.amount/2
+end
 
 data:extend({ silo_item, silo_recipe, silo, silo_rocket })

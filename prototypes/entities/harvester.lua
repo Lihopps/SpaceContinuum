@@ -217,9 +217,9 @@ data:extend({
         energy_required = 2,
         ingredients =
         {
-            { type = "item", name = "big-mining-drill",      amount = 5 },
-            { type = "item", name = "steel-plate",           amount = 100 },
-            { type = "item", name = "low-density-structure", amount = 20 }
+            { type = "item", name = "oil-refinery",      amount = 5 },
+            { type = "item", name = "lihop-titan-plate", amount = 50 },
+            { type = "item", name = "lihop-titan-rod", amount = 50 }
 
         },
         results = { { type = "item", name = "lihop-harvester", amount = 1 } }

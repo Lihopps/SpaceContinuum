@@ -2,14 +2,15 @@
     {
       type = "technology",
       name = "lihop-dyson-sphere-realisation",
-      icons = util.technology_icon_constant_planet("__space-age__/graphics/technology/vulcanus.png"),
+      icon = "__SpaceContinuum__/graphics/technology/lihop-dyson-sphere-realisation.png",
       icon_size = 256,
       essential = true,
       effects = {
         {
           type="nothing",
-          effect_description="le titre",
-          icon = "__base__/graphics/entity/accumulator/accumulator.png"
+          effect_description={"technology-description.dyson"},
+          icon = "__SpaceContinuum__/graphics/technology/lihop-dyson-sphere-realisation.png",
+          icon_size = 256,
         }
       },
       prerequisites = { "lihop-dyson-scaffold" },
@@ -25,7 +26,7 @@
   {
       type = "technology",
       name = "lihop-rocket-silo",
-      icons = util.technology_icon_constant_planet("__space-age__/graphics/technology/vulcanus.png"),
+      icon = "__SpaceContinuum__/graphics/technology/lihop-rocket-silo.png",
       icon_size = 256,
       essential = true,
       effects = {
@@ -63,7 +64,7 @@
     {
       type = "technology",
       name = "lihop-titan-ore",
-      icons = util.technology_icon_constant_planet("__space-age__/graphics/technology/vulcanus.png"),
+      icon = "__SpaceContinuum__/graphics/technology/lihop-titan-ore.png",
       icon_size = 256,
       essential = true,
       effects = {
@@ -97,7 +98,7 @@
     {
       type = "technology",
       name = "lihop-harvester-l",
-      icons = util.technology_icon_constant_planet("__space-age__/graphics/technology/vulcanus.png"),
+      icon = "__SpaceContinuum__/graphics/technology/lihop-harvester-l.png",
       icon_size = 256,
       essential = true,
       effects = {
@@ -106,7 +107,7 @@
         recipe = "lihop-harvester"
         },
       },
-      prerequisites = { "lihop-titan-ore" },
+      prerequisites = { "lihop-titan-ore","lihop-titan-util" },
       unit =
       {
         count = 1000,
@@ -123,7 +124,7 @@
       {
       type = "technology",
       name = "lihop-superbarrel",
-      icons = util.technology_icon_constant_planet("__space-age__/graphics/technology/vulcanus.png"),
+      icon = "__SpaceContinuum__/graphics/technology/lihop-superbarrel.png",
       icon_size = 256,
       essential = true,
       effects = {},
@@ -144,7 +145,7 @@
      {
       type = "technology",
       name = "lihop-titan-util",
-      icons = util.technology_icon_constant_planet("__space-age__/graphics/technology/vulcanus.png"),
+      icon = "__SpaceContinuum__/graphics/technology/lihop-titan-util.png",
       icon_size = 256,
       essential = true,
       effects = {
@@ -186,10 +187,10 @@
         type = "unlock-recipe",
         recipe = "plasma_pipe"
         },
-        {
-        type = "unlock-recipe",
-        recipe = "plasma_pipe-to-ground"
-        },
+        -- {
+        -- type = "unlock-recipe",
+        -- recipe = "plasma_pipe-to-ground"
+        -- },
       },
       prerequisites = { "lihop-rocket-silo","lihop-titan-ore" },
       unit =
@@ -208,7 +209,7 @@
     {
       type = "technology",
       name = "lihop-harvester-h",
-      icons = util.technology_icon_constant_planet("__space-age__/graphics/technology/vulcanus.png"),
+      icon = "__SpaceContinuum__/graphics/technology/lihop-harvester-h.png",
       icon_size = 256,
       essential = true,
       effects = {
@@ -239,7 +240,7 @@
     {
       type = "technology",
       name = "lihop-dyson-scaffold",
-      icons = util.technology_icon_constant_planet("__space-age__/graphics/technology/vulcanus.png"),
+      icon = "__SpaceContinuum__/graphics/technology/lihop-dyson-scaffold.png",
       icon_size = 256,
       essential = true,
       effects = {
