@@ -3,6 +3,7 @@ local asteroids = require("creator.asteroids")
 local routes = require("creator.routes")
 local star = require("creator.star")
 local wormhole = require("creator.wormhole")
+local visible=require("util.visible")
 
 
 --choose a least one site for dyson sphere
@@ -22,6 +23,9 @@ for i = 1,1 do-- math.min(2, #stars) do
   data:extend({wormh})
   local connexion = wormhole.make_connection(star,wormh)
   data:extend({connexion})
+
+  visible.create_planet_sprite_prototype(data.raw["planet"][star.name])
+  visible.create_planet_sprite_prototype(data.raw["space-location"][wormh.name])
 end
 
 

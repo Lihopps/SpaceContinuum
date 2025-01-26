@@ -65,5 +65,5 @@ for name,type in pairs(gazeous_fiel) do
     sc_add_gazeous_field(type,name)
 end
 
-
+data.raw["space-location"]["solar-system-edge"].localised_description=nil
 

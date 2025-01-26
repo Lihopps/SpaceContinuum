@@ -14,7 +14,7 @@ local function set_recipe(platforme,n,type)
     if not platforme.surface then return end
     local harvesters=platforme.surface.find_entities_filtered(filter) 
     if not harvesters then return end
-    game.print("ici")
+    --game.print("ici")
     for _,harvester in pairs(harvesters) do
         if n==0 then
             --game.print(platforme.space_location.localised_description)

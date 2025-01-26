@@ -180,7 +180,7 @@
      {
       type = "technology",
       name = "lihop-titan-pipe",
-      icons = util.technology_icon_constant_planet("__space-age__/graphics/technology/vulcanus.png"),
+      icon = "__SpaceContinuum__/graphics/technology/lihop-titan-pipe.png",
       icon_size = 256,
       essential = true,
       effects = {

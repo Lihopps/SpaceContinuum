@@ -34,6 +34,7 @@ function wormhole.make_worm_hole(star)
         type = "space-location",
         name = "lihop-wormhole",
         localised_name = { "gui.wormhole" },
+        localised_description={"gui.wormhole-description"},
         draw_orbit = false,
         distance = distance,
         orientation = n_angle,
