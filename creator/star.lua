@@ -39,6 +39,7 @@ function star.make_dyson_site(old_star)
         type = "planet",
         name = old_star.name,
         localised_name = old_star.localised_name,
+        localised_description={"entity-description.dyson_sphere_site"},
         order = old_star.order,
         subgroup = old_star.subgroup,
         draw_orbit = false,
@@ -119,6 +120,10 @@ function star.make_dyson_site(old_star)
 
 
     }
+
+    
+
+
     return star
 end
 

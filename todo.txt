@@ -1,7 +1,4 @@
-pipe and silo graphics
-localised 
-recipe
-description des tech discovery
+techno cost
 
 
 
@@ -9,6 +6,7 @@ Equilibrage sa race !!!!
 
 thanks to :
 hay_guise planet radius
+le type des icons
 
 ask for:
 visible planet support starmap_icons
@@ -17,7 +15,7 @@ visible planet support starmap_icons
 v0.0.2
 ajout des vers
 changement territory settings
-tips and trick
+tips and trick mieux
 (+factoriopedia sim ?)
 le tweak map gen
 

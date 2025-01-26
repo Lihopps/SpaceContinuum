@@ -17,7 +17,7 @@ data:extend({
     {
         type = "item-group",
         name = "planets",
-        order = "a",
+        order = "da",
         icon = "__SpaceContinuum__/graphics/icons/galaxy.png",
         icon_size = 128,
     },
@@ -37,22 +37,22 @@ data:extend({
         type = "recipe-category",
         name = "lihop-harvesting"
     },
-    -- {
-    --     type = "item-subgroup",
-    --     name = "sc-superbarrel",
-    --     group = "intermediate-products",
-    --     order = "pq",
-    -- },
+    {
+        type = "item-subgroup",
+        name = "fill-superbarrel",
+        group = "intermediate-products",
+        order = "ea",
+    },
     -- {
     --     type = "item-subgroup",
     --     name = "sc-fill-superbarrel",
     --     group = "intermediate-products",
     --     order = "pq",
     -- },
-    -- {
-    --     type = "item-subgroup",
-    --     name = "sc-empty-superbarrel",
-    --     group = "intermediate-products",
-    --     order = "pq",
-    -- },
+    {
+        type = "item-subgroup",
+        name = "empty-superbarrel",
+        group = "intermediate-products",
+        order = "fa",
+    },
 })

@@ -68,7 +68,7 @@ function corps.make_moon(global_map_gen,system,planet,system_name,parent_name, p
         
         map_gen_settings = map_gen.tweak(global_map_gen,name_gen,pressure,gravity),
         surface_properties = {
-          ["day-night-cycle"] = gen:random(10,100) * (24 * hour),
+          ["day-night-cycle"] = gen:random(60,500) * (second),
           ["solar-power"] = math.floor(util.constraints(planet.solar_power_in_space-gen:random(50,200),1,10000000)),
           ["magnetic-field"] = magnetic_field,
           size_surface=map_gen.get_size_from_planet_magnitude(magnitude),

@@ -219,7 +219,8 @@ data:extend({
         {
             { type = "item", name = "oil-refinery",      amount = 5 },
             { type = "item", name = "lihop-titan-plate", amount = 50 },
-            { type = "item", name = "lihop-titan-rod", amount = 50 }
+            { type = "item", name = "lihop-titan-rod", amount = 50 },
+            { type = "item", name = "lihop-electronic-circuit", amount = 100}
 
         },
         results = { { type = "item", name = "lihop-harvester", amount = 1 } }

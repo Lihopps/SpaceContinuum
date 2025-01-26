@@ -2,6 +2,29 @@ local superbarrel = require("util.superbarrel")
 local asteroids = require("creator.asteroids")
 local routes = require("creator.routes")
 local star = require("creator.star")
+local wormhole = require("creator.wormhole")
+
+
+--choose a least one site for dyson sphere
+local stars = {}
+for name, star in pairs(data.raw["space-location"]) do
+  if string.find(name, "lihopstar") then
+    table.insert(stars, name)
+  end
+end
+
+for i = 1,1 do-- math.min(2, #stars) do
+  local spot = math.random(1, #stars)
+  local star = star.make_dyson_site(data.raw["space-location"][stars[spot]])
+  data.raw["space-location"][stars[spot]] = nil
+  data:extend({ star })
+  local wormh = wormhole.make_worm_hole(star)
+  data:extend({wormh})
+  local connexion = wormhole.make_connection(star,wormh)
+  data:extend({connexion})
+end
+
+
 
 --create space-connection icon and space connection spawn def
 data.raw.planet["aquilo"].orbit_distance = 5
@@ -40,23 +63,6 @@ for name, prototype in pairs(data.raw["space-connection"]) do
 end
 
 
---choose a least one site for dyson sphere
-local stars = {}
-for name, star in pairs(data.raw["space-location"]) do
-  if string.find(name, "lihopstar") then
-    table.insert(stars, name)
-  end
-end
-
-for i = 1, math.min(2, #stars) do
-  local spot = math.random(1, #stars)
-  local star = star.make_dyson_site(data.raw["space-location"][stars[spot]])
-  data.raw["space-location"][stars[spot]] = nil
-  data:extend({ star })
-end
-
-
-
 --worldCreation_gazeous_field={light={},heavy={}}
 --add harvesting light and heavy recipe and create super barrel
 for _, h_fluid in pairs(worldCreation_gazeous_field["heavy"]) do
@@ -69,6 +75,7 @@ for _, h_fluid in pairs(worldCreation_gazeous_field["heavy"]) do
         type = "recipe",
         name = name,
         enabled = lihop_debug,
+        localised_name={"recipe-name.gazeous-planet-harvester"},
         surface_conditions = { { property = "gravity", min = 0, max = 0 } },
         category = "lihop-harvesting",
         energy_required = 2,

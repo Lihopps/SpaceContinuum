@@ -13,6 +13,7 @@ local function make_ionise_item(item_name,ioning_type)
         table.insert(description,"\n")
         table.insert(description,{"item-description.send-in-belt"})
     end
+    item_ioning.localised_name={"item-name.lihop-ionising",{"item-name."..item_ioning.name}}
     item_ioning.name=item_ioning.name.."-ioning-"..ioning_type
     item_ioning.localised_description=description
     item_ioning.icon=nil
@@ -314,6 +315,7 @@ data:extend({
     {
     type = "item",
     name = "lihop-satellite-dummy",
+    localised_name="lihop-satellite",
     icon = "__base__/graphics/icons/satellite.png",
     subgroup = "space-related",
     order = "d[rocket-parts]-e[satellite]",

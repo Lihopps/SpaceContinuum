@@ -46,7 +46,7 @@ function corps.make_planet(global_map_gen,system,system_name,backers,gen,distanc
         
         map_gen_settings = map_gen.tweak(global_map_gen,name_gen,pressure,gravity),
         surface_properties = {
-          ["day-night-cycle"] = gen:random(10,100) * (24 * hour),
+          ["day-night-cycle"] = gen:random(60,500) * (second),
           ["solar-power"] = map_gen.get_solar_power_surface(system,distance_from_parent,gen),
           ["magnetic-field"] = magnetic_field,
           size_surface=map_gen.get_size_from_planet_magnitude(magnitude),

@@ -29,7 +29,8 @@ local bot_item = table.deepcopy(data.raw["item"]["construction-robot"])
 bot_item.name = "temp-bot"
 bot_item.place_result = "temp-bot"
 bot_item.hidden=true
-bot_item.hidden_in_factoriopedia=true
+--bot_item.hidden_in_factoriopedia=true
+bot_item.localised_description={"item-description.temp-bot"}
 bot_item.subgroup="other"
 
 

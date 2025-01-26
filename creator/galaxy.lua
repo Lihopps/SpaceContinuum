@@ -183,6 +183,7 @@ local function add_galaxy_to_game(galaxy_objects)
         {
           type = "technology",
           name = tech_name,
+          localised_name={"technology-name.lihop-system-discovery",system.localised_name},
           localised_description={"technology-description.help-discovery",system.localised_name},
           icons = util.sptechnology_icon_constant_planet(system.icons),
           icon_size = 256,

@@ -1,9 +1,11 @@
 local util = require("util.util")
 
-local function clear_cargo(inv,message)
+local function clear_cargo(inv,force,message)
     if not inv then return end
-    game.print("Something wrong with cargo !")
-    game.print(message)
+    force.print({"gui.cargoprobleme"})
+    if message then
+        force.print({"gui."..message})
+    end
     inv.clear()
 end
 
@@ -14,14 +16,11 @@ local function check_cargo_inv(silo,inv,name)
      --satellite pour decouverte
     if item.name=="lihop-satellite" then
         if string.find(name, "edge") then
-            game.print("lancement sur un edge")
-            game.print(name)
             local system_name=util.split(name,"-")[5]
             if system_name then
                 local force=silo.force
                 local techno=prototypes.get_technology_filtered({})["lihop-discovery-lihop-system-"..system_name]
                 if techno then
-                    game.print("prototypes find")
                     if force.technologies["lihop-rocket-silo"].researched then
                         force.technologies[techno.name].researched = true
                         force.print("[technology="..techno.name.."] researched.")
@@ -42,7 +41,7 @@ local function check_cargo_inv(silo,inv,name)
                 end
             end
         end
-        clear_cargo(inv,"pas ici la dyson")
+        clear_cargo(inv,silo.force,"not-dyson")
         return
     end
 
@@ -55,13 +54,13 @@ local function check_cargo_inv(silo,inv,name)
             elseif string.find(name, "asteroids_belt") and data[#data - 1] == "ioning" and data[#data] == "belt" then
                 return      
             else
-                clear_cargo(inv)
+                clear_cargo(inv,silo.force,"wrong-ionising")
             end
         end
     end
 
     --dans le doute on delete
-    clear_cargo(inv)
+    clear_cargo(inv,silo.force)
 end
 
 local function on_rocket_launch_ordered2(e)

@@ -1,8 +1,8 @@
-# Infinity
+# Space Continuum
 
-Add a way to get Infinity ressources
+Explore new star system and build an Dyson sphere
 
 ## Installation
 
-[Download on the Mod Portal.](https://mods.factorio.com/mod/Infinity)
+[Download on the Mod Portal.](https://mods.factorio.com/mod/SpaceContinuum)
 

@@ -6,17 +6,22 @@
       icon_size = 256,
       essential = true,
       effects = {
+        -- {
+        --   type="nothing",
+        --   effect_description={"technology-description.dyson"},
+        --   icon = "__SpaceContinuum__/graphics/technology/lihop-dyson-sphere-realisation.png",
+        --   icon_size = 256,
+        -- }, 
         {
-          type="nothing",
-          effect_description={"technology-description.dyson"},
-          icon = "__SpaceContinuum__/graphics/technology/lihop-dyson-sphere-realisation.png",
-          icon_size = 256,
+        type = "unlock-space-location",
+        space_location = "lihop-wormhole",
+        use_icon_overlay_constant = true
         }
       },
       prerequisites = { "lihop-dyson-scaffold" },
       research_trigger={
           type="craft-item",
-          count=(lihop_debug and 100) or 10000,
+          count=(lihop_debug and 10) or 10000,
           item={name="lihop-dyson-scaffold-result"}
         }
     },

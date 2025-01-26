@@ -11,6 +11,8 @@ require("prototypes.items.items")
 require("prototypes.fluids.fluids")
 require("prototypes.resources.resource")
 
+require("prototypes.tipsandtrick")
+
 
 worldCreation_planet_graphics={}
 worldCreation_gazeous_field={light={},heavy={}}
