@@ -77,6 +77,7 @@ function corps.make_planet(global_map_gen,system,system_name,backers,gen,distanc
         }
         table.insert(planet.children, route)
     end
+    table.insert(worldCreation_planets,planet.name)
     return planet
 end
 

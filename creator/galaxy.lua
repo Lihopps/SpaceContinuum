@@ -178,7 +178,7 @@ local function add_galaxy_to_game(galaxy_objects)
         data:extend { route }
       end
     else
-      local tech_name = "lihop-discovery-"..system.name
+      local tech_name = "lihopdiscovery-"..system.name
       data:extend({
         {
           type = "technology",

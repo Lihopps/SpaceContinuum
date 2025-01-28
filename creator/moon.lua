@@ -77,6 +77,7 @@ function corps.make_moon(global_map_gen,system,planet,system_name,parent_name, p
           --robot comsuption = 100*gravity/(pression)  gravity=pression*rc/100  
         }
     }
+    table.insert(worldCreation_planets,moon.name)
     return moon
 end
 

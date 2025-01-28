@@ -4,6 +4,13 @@ local routes = require("creator.routes")
 local star = require("creator.star")
 local wormhole = require("creator.wormhole")
 local visible=require("util.visible")
+local map_gen=require("creator.map-gen")
+local compat=require("compat.compat_gen")
+
+map_gen.swap_modded()
+compat.update()
+
+
 
 
 --choose a least one site for dyson sphere
@@ -139,10 +146,10 @@ data:extend({
   },
 })
 
-data.raw.technology["lihop-discovery-lihop-system-Calidus"].prerequisites = { "space-platform-thruster" }
-data.raw.technology["lihop-discovery-lihop-system-Calidus"].localised_description=nil
-data.raw.technology["lihop-discovery-lihop-system-Calidus"].research_trigger = nil
-data.raw.technology["lihop-discovery-lihop-system-Calidus"].unit =
+data.raw.technology["lihopdiscovery-lihop-system-Calidus"].prerequisites = { "space-platform-thruster" }
+data.raw.technology["lihopdiscovery-lihop-system-Calidus"].localised_description=nil
+data.raw.technology["lihopdiscovery-lihop-system-Calidus"].research_trigger = nil
+data.raw.technology["lihopdiscovery-lihop-system-Calidus"].unit =
 {
   count = 1000,
   ingredients =

@@ -19,7 +19,7 @@ local function check_cargo_inv(silo,inv,name)
             local system_name=util.split(name,"-")[5]
             if system_name then
                 local force=silo.force
-                local techno=prototypes.get_technology_filtered({})["lihop-discovery-lihop-system-"..system_name]
+                local techno=prototypes.get_technology_filtered({})["lihopdiscovery-lihop-system-"..system_name]
                 if techno then
                     if force.technologies["lihop-rocket-silo"].researched then
                         force.technologies[techno.name].researched = true

@@ -16,6 +16,8 @@ require("prototypes.tipsandtrick")
 
 worldCreation_planet_graphics={}
 worldCreation_gazeous_field={light={},heavy={}}
+worldCreation_modded_planets={}
+worldCreation_planets={}
 
 ---Add graphics set for planet type like
 ---@param name string : name of the planet type like (ex : vulcanus)

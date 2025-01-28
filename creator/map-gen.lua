@@ -228,17 +228,26 @@ function map_gen.clear_and_collect()
     --supprimer toutes les planets/space-location et space-connection sauf nauvis et cie
     local global_map_gen={planet={},spawn_data={},graphics={}} --planet : string=>planetprototype,spawn_data : string=>{max,min,weight}, graphics : string =>{icon,starmap_icon,size}
     for name,planet in pairs(data.raw.planet) do
-        global_map_gen.planet[name]=table.deepcopy(data.raw.planet[name])
+        data.raw.planet[name].surface_properties["size_surface"]=map_gen.get_size_from_planet_magnitude(data.raw.planet[name].magnitude)
+        
         if not blacklist[name] then
-            data.raw.planet[name]=nil
+            --data.raw.planet[name]=nil
+            
         else
-            data.raw.planet[name].surface_properties["size_surface"]=map_gen.get_size_from_planet_magnitude(data.raw.planet[name].magnitude)
+            global_map_gen.planet[name]=table.deepcopy(data.raw.planet[name])
         end
     end
-    for name,_ in pairs(data.raw["space-connection"]) do
+    for name,connection in pairs(data.raw["space-connection"]) do
         if not blacklist[name] then
+            if not blacklist[connection.from] and not worldCreation_modded_planets[connection.from] then
+                worldCreation_modded_planets[connection.from]=true
+            end
+            if not blacklist[connection.to] and not worldCreation_modded_planets[connection.to] then
+                worldCreation_modded_planets[connection.to]=true
+            end
             data.raw["space-connection"][name]=nil
         end
+
     end
     for name,_ in pairs(data.raw["space-location"]) do
         if not blacklist[name] then
@@ -349,6 +358,45 @@ function map_gen.get_gazeous_field(gen)
     local str_h="[fluid="..heavy.."]"
     return str_h.."\n"..str_l
 end
+
+
+
+function map_gen.swap_modded()
+    for name,_ in pairs(worldCreation_modded_planets) do
+        local index=math.random(#worldCreation_planets)
+        local p_name=worldCreation_planets[index]
+
+        for name_connection,connection in pairs(data.raw["space-connection"]) do
+            if connection.from==p_name then
+                connection.from=name
+            end
+            if connection.to==p_name then
+                connection.to=name
+            end
+        end
+        
+        data.raw.planet[name].orientation=data.raw.planet[p_name].orientation
+        data.raw.planet[name].distance=data.raw.planet[p_name].distance
+        data.raw.planet[name].subgroup=data.raw.planet[p_name].subgroup
+        data.raw.planet[name].order=data.raw.planet[p_name].order
+
+        for namet,tech in pairs(data.raw.technology) do
+            if string.find(namet, "lihopdiscovery") then
+                for _,effect in pairs(tech.effects) do
+                    if effect.space_location==p_name then
+                        effect.space_location=name
+                    end
+                end
+            end
+        end
+
+        data.raw.planet[p_name]=nil
+
+        table.remove(worldCreation_planets,index)
+
+    end 
+end
+
 
 return map_gen
 
