@@ -12,13 +12,13 @@ data:extend({
         factoriopedia_alternative="lihop-titan-catalyseur",
         ingredients =
         {
-            { type = "fluid", name = "fluoroketone-hot",         amount = 100 },
+            { type = "fluid", name = "fluoroketone-cold",         amount = 100 },
             { type = "fluid", name = "electrolyte",              amount = 50 },
             { type = "item", name = "lihop-chemical-catalyst-ioning-belt", amount = 2 },
         },
         results = {
             { type = "fluid", name = "lihop-titan-catalyseur", amount = 20 },
-            { type = "fluid", name = "fluoroketone-cold", amount = 50 },
+            { type = "fluid", name = "fluoroketone-hot", amount = 50 },
         }
     },
     {

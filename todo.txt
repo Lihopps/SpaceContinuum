@@ -20,6 +20,7 @@ tips and trick mieux
 le tweak map gen
 
 v0.1.0
+new tile (sulfuric, etc)
 add custom planet
 tech system icon
 revoir la size des planets

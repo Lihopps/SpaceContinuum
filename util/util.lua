@@ -65,5 +65,10 @@ function util.sptechnology_icon_constant_planet(star_icons)
   return icons
 end
 
-
+function util.add_ingredient(recipe_name,ingredient)
+    if not data.raw.recipe[recipe_name] then
+        return
+    end
+    table.insert(data.raw.recipe[recipe_name].ingredients,ingredient)
+end
 return util

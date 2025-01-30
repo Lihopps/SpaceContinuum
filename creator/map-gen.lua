@@ -77,7 +77,8 @@ local spawn_base={
             "scrap",
             "calcite",
             "holmium-ore",
-            "crude-oil"
+            "crude-oil",
+            "lihop-titan-ore",
         },
         fluid_tile={
             "water",

@@ -19,13 +19,14 @@ local function make_ionise_item(item_name,ioning_type)
     item_ioning.icon=nil
     item_ioning.icons={
         {
-            icon=item.icon,
+            icon="__SpaceContinuum__/graphics/icons/"..item.name.."-ioning.png",
             icon_size=item.icon_size
         },
         {
-            icon="__SpaceContinuum__/graphics/icons/"..item.name.."-ioning.png",
+            icon=item.icon,
             icon_size=item.icon_size
-        }
+        },
+        
     }
     item_ioning.spoil_ticks= 1 * hour
     item_ioning.spoil_result=item.name
