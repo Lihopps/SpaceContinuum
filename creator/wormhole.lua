@@ -41,7 +41,7 @@ function wormhole.make_worm_hole(star)
         subgroup = star.subgroup,
         order = star.order .. "a",
         magnitude = 1,
-        gravity_pull = 100,
+        gravity_pull = 250,
 
         icon = "__SpaceContinuum__/graphics/icons/corps/wormhole/wormhole-icon.png",
         starmap_icon = "__SpaceContinuum__/graphics/icons/corps/wormhole/wormhole.png",
