@@ -1,32 +1,41 @@
-techno cost
+Ajout:
+    - techno cost
+    - equilibrage sa race
+    - starmap position
+
+Local:
+    - dss
+
+graphics:
+    - sd
+
+tat:
+    - surface favori 
+
+demande:
+    - visible planet support starmap_icons
+
+thanks_to:
+    - hay_guise planet radius
+    - le type des icons
 
 
 
-Equilibrage sa race !!!!
+v0.0.2:
+    - ajout des vers
+    - changement territory settings
+    - tips and trick mieux
+    - (+factoriopedia sim ?)
+    - le tweak map gen
 
-thanks to :
-hay_guise planet radius
-le type des icons
-
-ask for:
-visible planet support starmap_icons
-
-
-v0.0.2
-ajout des vers
-changement territory settings
-tips and trick mieux
-(+factoriopedia sim ?)
-le tweak map gen
-
-v0.1.0
-new tile (sulfuric, etc)
-add custom planet
-tech system icon
-revoir la size des planets
-graphics add multi graphics for all planet / belt
-le tweak map gen
-changer les conditions des recipes
+v0.1.0:
+    - new tile (sulfuric, etc)
+    - add custom planet
+    - tech system icon
+    - revoir la size des planets
+    - graphics add multi graphics for all planet / belt
+    - le tweak map gen
+    - changer les conditions des recipes
 
 
 

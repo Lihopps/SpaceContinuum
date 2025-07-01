@@ -394,7 +394,6 @@ function map_gen.swap_modded()
         data.raw.planet[p_name]=nil
 
         table.remove(worldCreation_planets,index)
-
     end 
 end
 

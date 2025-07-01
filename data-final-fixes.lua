@@ -30,9 +30,12 @@ for i = 1,1 do-- math.min(2, #stars) do
   data:extend({wormh})
   local connexion = wormhole.make_connection(star,wormh)
   data:extend({connexion})
-
-  visible.create_planet_sprite_prototype(data.raw["planet"][star.name])
-  visible.create_planet_sprite_prototype(data.raw["space-location"][wormh.name])
+  
+  if mods["visible-planets"] then
+    vp_override_planet_scale(wormh.name, 10)
+    visible.create_planet_sprite_prototype(data.raw["planet"][star.name])
+    visible.create_planet_sprite_prototype(data.raw["space-location"][wormh.name])
+  end
 end
 
 

@@ -4,7 +4,7 @@
 local visible = {}
 
 local sprite_goal_size = 512
-local planet_overrides = {} --vp_get_planet_overrides() -- Defined in separate file
+local planet_overrides = vp_get_planet_overrides() -- Defined in separate file
 function visible.create_planet_sprite_prototype(planet)
     local icon = planet.starmap_icon
     local icons = planet.starmap_icons

@@ -3,6 +3,7 @@
 
 local util = require("util.util")
 local asteroids = require("creator.asteroids")
+local visible=require("util.visible")
 
 local function star_power(temperature)
     return util.map(temperature,100,300,600,1500)
@@ -120,10 +121,9 @@ function star.make_dyson_site(old_star)
 
 
     }
-
-    
-
-
+    if mods["visible-planets"] then
+        vp_override_planet_scale(star.name, star.magnitude)
+    end
     return star
 end
 
@@ -171,6 +171,10 @@ local star = {
             asteroid_spawn_influence=util.map(magnitude,1,12,0.3,0.6),
             spawn_data=spawn_data
         }
+    if mods["visible-planets"] then
+        vp_override_planet_scale(star.name, star.magnitude)
+        visible.create_planet_sprite_prototype(star)
+    end
     return star
 end
 

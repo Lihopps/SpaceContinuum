@@ -55,4 +55,12 @@ data:extend({
         group = "intermediate-products",
         order = "fa",
     },
+     {
+    type = "custom-input",
+    name = "toggle-PLANET",
+    key_sequence = ".",
+    include_selected_prototype=true,
+    consuming = "game-only",
+    action = "lua"
+  },
 })

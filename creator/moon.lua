@@ -78,6 +78,9 @@ function corps.make_moon(global_map_gen,system,planet,system_name,parent_name, p
         }
     }
     table.insert(worldCreation_planets,moon.name)
+    if mods["visible-planets"] then
+      vp_override_planet_scale(moon.name, moon.magnitude)
+    end
     return moon
 end
 

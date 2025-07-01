@@ -78,6 +78,9 @@ function corps.make_planet(global_map_gen,system,system_name,backers,gen,distanc
         table.insert(planet.children, route)
     end
     table.insert(worldCreation_planets,planet.name)
+     if mods["visible-planets"] then
+        vp_override_planet_scale(planet.name, planet.magnitude)
+    end
     return planet
 end
 
@@ -135,6 +138,9 @@ function corps.make_gazeous_planet(global_map_gen,system,system_name,backers,gen
             need_spanwdef=true
         }
         table.insert(planet.children, route)
+    end
+    if mods["visible-planets"] then
+        vp_override_planet_scale(planet.name, planet.magnitude)
     end
     return planet
 end

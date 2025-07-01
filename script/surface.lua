@@ -40,7 +40,6 @@ local function on_marked_for_deconstruction(e)
 		if spider then
 			local spider_entity=e.entity.surface.create_entity{name="spidertron", position=e.entity.position,force=e.entity.force,item=spider}
 			if spider_entity then
-				
 				--copy grid from item
 				spider_entity.grid.clear()
 				if spider.grid then 
@@ -63,6 +62,27 @@ local function on_marked_for_deconstruction(e)
 	end
 end
 
+local function toogle_planet_visibility(e)
+	if e.selected_prototype then
+		if e.selected_prototype.base_type=="space-location" then
+			if e.selected_prototype.derived_type=="planet" then
+				local surface=game.planets[e.selected_prototype.name].surface
+				if surface and surface.valid then
+					local player=game.players[e.player_index]
+					local hidden=player.force.get_surface_hidden(surface) or false
+					player.force.set_surface_hidden(surface,not hidden)
+					player.game_view_settings.show_surface_list=false
+					player.game_view_settings.show_surface_list=true
+				end
+			end
+		end
+	end
+end
+
+local function on_gui_click(e)
+	game.print("click")
+end
+
 local surface={}
 
 
@@ -70,6 +90,7 @@ surface.events={
 	[defines.events.on_chunk_generated ]=on_chunk_generated,
 	[defines.events.on_surface_created ]=on_surface_created,
 	[defines.events.on_marked_for_deconstruction]=on_marked_for_deconstruction,
+	["toggle-PLANET"] = toogle_planet_visibility,
 
 }
 

@@ -62,6 +62,12 @@ local function on_space_platform_changed_state(e)
     end
 end
 
+local function cargo_pod_creation(e)
+    local proxy = e.spawned_container
+    if proxy and proxy.valid then
+        local marked=proxy.order_deconstruction(proxy.force)
+    end
+end
 
 
 local plateform={}
@@ -69,7 +75,8 @@ local plateform={}
 
 plateform.events={
 	[defines.events.on_space_platform_changed_state]=on_space_platform_changed_state,
-
+    [defines.events.on_cargo_pod_delivered_cargo ] = cargo_pod_creation,
 }
+
 
 return plateform
